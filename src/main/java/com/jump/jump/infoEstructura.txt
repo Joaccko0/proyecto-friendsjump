@@ -1,0 +1,11 @@
+src
+└── main
+    └── java
+        └── com.jump.jump
+            ├── controller        --> Controladores REST (endpoints)
+            ├── service           --> Lógica de negocio
+            ├── repository        --> Interfaces JPA / acceso a datos
+            ├── model             --> Entidades (clases @Entity)
+            ├── config            --> Configuraciones generales (seguridad, CORS, JWT, etc.)
+            ├── util              --> Utilidades y helpers
+            └── JumpApplication.java  --> Clase principal @SpringBootApplication

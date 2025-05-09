@@ -1,0 +1,84 @@
+📌 Resumen rápido
+Componente	            ¿Para qué sirve?
+JJWT	                Leer/validar el token JWT
+JwtService	            Extraer datos del token, validar firma y fecha
+JwtAuthFilter	        Interceptar requests y aplicar la lógica de JWT
+SecurityConfig	        Decidir qué rutas requieren token
+
+
+1. JJWT (Java JWT) – jjwt-api, jjwt-impl, jjwt-jackson
+
+    📦 ¿Qué es? Una librería para crear, leer y validar tokens JWT.
+
+    📍 ¿Para qué la usás? Para verificar que el token que llega en el request no esté 
+    vencido, que sea válido, y para extraer datos del mismo (como el nombre de usuario).
+
+    🧠 Tu app no genera tokens, solo los valida.
+
+2. JwtService – Servicio que valida el token
+
+    📦 ¿Qué es? Una clase que:
+
+        Lee el JWT
+
+        Verifica que esté bien firmado
+
+        Extrae el usuario del token
+
+    📍 ¿Para qué sirve?
+    En cada request, usás este servicio para saber si el token:
+
+        Es válido ✅
+
+        Tiene un "subject" (usuario) que podés guardar como contexto
+
+3. JwtAuthFilter – Filtro de seguridad
+
+    📦 ¿Qué es? Un filtro que se ejecuta en cada request entrante.
+
+    📍 ¿Qué hace?
+
+        Revisa si hay un token en el header (Authorization: Bearer ...)
+
+        Lo valida con JwtService
+
+        Si es válido, le dice a Spring: “este usuario está autenticado”
+
+    🧠 Si el token no está o no es válido, el request no entra a tu controlador.
+
+4. SecurityConfig – Configura qué rutas están protegidas
+
+    📦 ¿Qué es? Una clase que le dice a Spring:
+
+        Cuáles rutas son públicas
+
+        Cuáles requieren autenticación
+
+        Qué filtros usar (como el JWT)
+
+    📍 ¿Qué hace?
+
+        Protege automáticamente todo lo que no esté en /public/**
+
+        Usa el filtro JWT para verificar cada request
+
+
+🔐 ¿Cómo lo vas a usar en tu proyecto?
+
+    Cuando alguien (cliente o frontend) hace un request, te manda un JWT en el header:
+    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+Tu app intercepta el request con JwtAuthFilter.
+El JwtService valida el token (firma, fecha, formato).
+Si es válido, Spring Security deja pasar la request al controlador.
+Si no es válido o no hay token, devuelve 403 Forbidden.
+
+🧪 Ejemplo real
+Supongamos que hacés esto desde Postman o el frontend:
+
+GET /api/pases
+Authorization: Bearer eyJhbGciOi...
+
+    ✅ Si el token está bien: entra al controlador y ejecuta.
+
+    ❌ Si no está o es inválido: Spring bloquea el acceso.
