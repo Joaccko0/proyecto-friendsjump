@@ -1,0 +1,17 @@
+Empleado = (DNI(pk), Nombre, apellido, Correo, clave, idSucursal(fk)?)
+
+Propietario = (DNI(pk), Nombre, Apellido, correo, clave)
+
+Sucursal = (idSucursal(pk), Avenida, calle, nro, telefono?, nombreCiudad))
+
+EsPropietario = (idSucursal(fk)(PK), DNI(fk)? )
+
+Evento = ( (idSucursal(fk), fecha)(pk), precio, cantInvitados, asistenciamenores )
+
+Asociación contrato-Evento = ( (idSucursal(fk), fecha, url-copiaContrato(fk))(pk) )
+
+Copia-contrato = (url-contrato (pk))
+
+Entrada = ( (fecha, hora, idSucursal)(pk), nombreResponsable, apellidoResponsable,
+             cantidadIngresados, CorreoResponsableAsociado,
+             url-copiaContrato, dniEmpleado(fk)?, dniPropietario(fk)? )
