@@ -19,6 +19,12 @@ public class EsPropietario {
     @JoinColumn(name = "dni", nullable = true) // Clave foránea opcional
     private Propietario propietario;
 
-    // Getters y setters
+    public Sucursal getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(Sucursal sucursal) {
+        this.sucursal = sucursal;
+    }
 }
 
