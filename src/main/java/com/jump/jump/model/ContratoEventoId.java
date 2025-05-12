@@ -1,7 +1,6 @@
 package com.jump.jump.model;
 
 import jakarta.persistence.Embeddable;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
