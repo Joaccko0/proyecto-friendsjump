@@ -1,5 +1,5 @@
 package com.jump.jump.model;
-//ropietario = (DNI(pk), Nombre, Apellido, correo, clave)
+//propietario = (DNI(pk), Nombre, Apellido, correo, clave)
 
 import jakarta.persistence.*;
 

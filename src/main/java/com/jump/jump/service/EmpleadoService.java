@@ -13,7 +13,6 @@ public class EmpleadoService
 {
     @Autowired
     public EmpleadoRepository empleadoRepository;
-
     public List<Empleado> getAllEmpleado (){
         return this.empleadoRepository.findAll();
     }
