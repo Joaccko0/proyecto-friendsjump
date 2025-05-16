@@ -19,8 +19,8 @@ public class EmpleadoService
     public Empleado findByDNIEmpleado(String dni){
         return this.empleadoRepository.findById(dni).orElse(null);
     }
-    public List<Empleado> getAllEmpleadoBySucursal(Sucursal sucursal){
-        return this.empleadoRepository.findBySucursal(sucursal);
+    public List<Empleado> getAllEmpleadoBySucursal(Long idSucursal){
+        return this.empleadoRepository.findBySucursal_IdSucursal(idSucursal);
     }
     public void saveEmpleado(Empleado empleado){
         this.empleadoRepository.save(empleado);

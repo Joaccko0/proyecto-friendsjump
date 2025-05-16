@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface EmpleadoRepository extends JpaRepository<Empleado, String> {
         //implementarMasMetodos de verlo necesario
-         List<Empleado> findBySucursal(Sucursal sucursal);
+         List<Empleado> findBySucursal_IdSucursal(Long idSucursal);
 }
