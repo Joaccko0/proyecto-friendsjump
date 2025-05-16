@@ -7,16 +7,16 @@ import jakarta.persistence.Table;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "esPropietario")
+@Table(name = "es_propietario")
 public class EsPropietario {
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "idSucursal", nullable = false) // Clave primaria y foránea
+    @JoinColumn(name = "idSucursal") // Clave primaria y foránea
     private Sucursal sucursal;
 
     @ManyToOne
-    @JoinColumn(name = "dni", nullable = true) // Clave foránea opcional
+    @JoinColumn(name = "dni") // Clave foránea opcional
     private Propietario propietario;
 
     public Sucursal getSucursal() {

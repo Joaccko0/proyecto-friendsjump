@@ -5,7 +5,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "copiaContrato")
+@Table (name = "copia_contrato")
 public class CopiaContrato {
     @Id
     private String urlCopiaContrato;
