@@ -15,16 +15,18 @@ public class ContratoEvento {
     private Sucursal sucursal;
 
     @ManyToOne
+    @MapsId("urlCopiaContrato") // también está en el ID
+    @JoinColumn(name = "urlCopiaContrato")
+    private CopiaContrato copiaContrato;
+
+    @ManyToOne
     @JoinColumns({
             @JoinColumn(name = "idSucursal", referencedColumnName = "idSucursal", insertable = false, updatable = false),
             @JoinColumn(name = "fecha", referencedColumnName = "fecha", insertable = false, updatable = false)
     })
     private Evento evento;
 
-    @ManyToOne
-    @MapsId("urlCopiaContrato") // también está en el ID
-    @JoinColumn(name = "urlCopiaContrato")
-    private CopiaContrato copiaContrato;
+
 
     public ContratoEvento() {}
 
