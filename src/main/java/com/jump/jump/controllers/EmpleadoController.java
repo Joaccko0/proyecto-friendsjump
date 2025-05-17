@@ -1,4 +1,4 @@
-package com.jump.jump.controller;
+package com.jump.jump.controllers;
 
 import com.jump.jump.model.Empleado;
 import com.jump.jump.model.Sucursal;
